@@ -142,6 +142,8 @@ public class PropertySourceVault implements PropertySource {
             }
         } else if (arg0.startsWith(CRYPT_PREFIX) && textEncryptor != null) {
             result = textEncryptor.decrypt(arg0.substring(CRYPT_PREFIX.length()));
+        } else {
+            result = System.getProperty(arg0);
         }
         return result;
     }
